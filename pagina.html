@@ -1,0 +1,133 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+     
+        <style>
+            .caixa {
+                height: 400px;
+                width: 500px;
+                border: 1px solid black;
+                position: relative;
+                margin-top: 50px;
+                margin:50px;
+                padding: 20px;
+                background-color: black;
+                border: 3px solid orange;
+            }
+            body {
+                background-color: black;
+            }
+            main {
+                display: flex;
+                padding: 20px;
+            }
+            .curso {
+                justify-content: center;
+                border: 1px solid green;
+                border-radius: 15px;
+                background-color: white;
+                color: black;
+                border: 2px solid orange;
+                display: flex;
+                align-content: center;
+                margin-top: 40px;
+            }
+            button {
+                position: absolute;
+                top: 50%;
+                padding: 10px;
+                left: 111%;
+                border-radius: 10px;
+                outline: none;
+                border-color: red;
+                color: white;
+                background-color: black;
+                transform: translate(-50%,-50%);
+            }
+            
+            .bb{
+                 position: absolute;
+                top: 80%;
+                padding: 10px;
+                left: 111%;
+                border-radius: 10px;
+                outline: none;
+                border-color: red;
+                color: white;
+                background-color: black;
+                transform: translate(-50%,-50%);
+            }
+            .selec {
+                border: 1px solid green;
+                color: white;
+                background-color: green;
+            }
+            .verde{
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <div id="caixa1" class="caixa">
+                <div id="c1" class="curso c1">kkkHTML</div>
+                <div id="c2" class="curso c1">CSS</div>
+                <div id="c3" class="curso c1">React</div>
+                <div id="c4" class="curso c1">Java</div>
+                <div id="c5" class="curso c1">POO</div>
+                <div  id="c6" class="curso c1">Node.js</div>
+                <button id="btn" onclick="msg()">Copiar</button>
+
+            </div>
+
+            <div id="caixa2" class="caixa">
+            </div>
+
+
+            <div id="meuDIv"> Html  </div>
+        </main>
+
+        <script>
+        
+
+
+
+         const caixa1 = document.getElementById("caixa1");
+            const caixa2 = document.getElementById("caixa2");
+            const cursos = [...document.querySelectorAll(".curso")];
+
+             const btn   =  document.getElementById('btn');
+
+            
+              cursos.map ((el) => {
+                el.addEventListener("click", (evt) => {
+                    const abn = evt.target;
+                    abn.classList.toggle("selec");
+                });
+            });
+
+            
+
+            btn.addEventListener("click" ,()=>{
+              
+                     const selecionados = [...document.querySelectorAll(".selec")];
+                const naoSelecionados = [...document.querySelectorAll(".curso:not(.selec)")];
+
+                selecionados.forEach((ele) => { 
+                    caixa2.appendChild(ele);
+                });
+
+                naoSelecionados.forEach ((al) => {
+                    caixa1.appendChild(al);
+
+            })
+            
+            })     
+
+                 
+        </script>
+    </body>
+    </html>
